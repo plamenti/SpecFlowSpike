@@ -79,6 +79,11 @@
   <ItemGroup>
     <Compile Include="CommonPlayerCharacterSteps.cs" />
     <Compile Include="CustomConversions.cs" />
+    <Compile Include="InGameChat.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InGameChat.feature</DependentUpon>
+    </Compile>
     <Compile Include="PlayerAttributes.cs" />
     <Compile Include="PlayerCharacter.feature.cs">
       <AutoGen>True</AutoGen>
@@ -91,6 +96,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="InGameChat.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>InGameChat.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="PlayerCharacter.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
