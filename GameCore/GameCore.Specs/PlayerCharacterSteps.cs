@@ -124,6 +124,23 @@ namespace GameCore.Specs
             Assert.Equal(value, player.WeaponsValue);
         }
 
+        [Given(@"I have an Amulet with a power of (.*)")]
+        public void GivenIHaveAnAmuletWithAPowerOf(int p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"I use a magical amulet")]
+        public void WhenIUseAMagicalAmulet()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Amulet power should not be reduced")]
+        public void ThenAmuletPowerShouldNotBeReduced()
+        {
+            ScenarioContext.Current.Pending();
+        }
 
     }
 }
