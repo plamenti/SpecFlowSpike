@@ -21,9 +21,22 @@ namespace GameCore.Specs
         }
         
         [Then(@"My health should now be 100")]
-        public void ThenMyHealthShouldNowBe()
+        public void ThenMyHealthShouldNowBe100()
         {
             Assert.Equal(100, player.Health);
         }
+
+        [When(@"I take 40 damage")]
+        public void WhenITakeDamage()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"My health should now be 60")]
+        public void ThenMyHealthShouldNowBe60()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
     }
 }
