@@ -32,5 +32,18 @@ namespace GameCore.Specs
             Assert.True(player.IsDead);
         }
 
+        [Given(@"I have a damage resistance of (.*)")]
+        public void GivenIHaveADamageResistanceOf(int damageResistance)
+        {
+            player.DamageResistance = damageResistance;
+        }
+
+        [Given(@"I am an Elf")]
+        public void GivenIAmAnElf()
+        {
+            player.Race = "Elf";
+        }
+
+
     }
 }
