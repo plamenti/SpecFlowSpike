@@ -80,6 +80,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlayerCharacter.feature</DependentUpon>
     </Compile>
+    <Compile Include="PlayerCharacterSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
