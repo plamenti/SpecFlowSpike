@@ -4,3 +4,17 @@ To run the console runner, use a command like:
 packages\xunit.runner.console.2.4.0\tools\net46\xunit.console GameCore.Specs\bin\Debug\GameCore.Specs.dll
 
 The console runner has several command line options, which include options for parallelization, test filtering, and result reporting. To learn more about the console runner options, run the console runner with no command line options.
+
+If scope is set so:
+[Scope(Tag = "elf", Feature = "PlayerCharacter", Scenario = "Health reduction")]
+ - this is like logical AND
+
+[Scope(Tag = "elf")]
+[Scope(Feature = "PlayerCharacter")]
+[Scope(Scenario = "Health reduction")] 
+ - this is like logical OR
+ 
+In case of multiple matches:
+
+Matches regular step definition and scoped step definition - Scoped definition will be used
+Matches more than one scoped step definition - Most restrictive step will be used
