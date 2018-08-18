@@ -34,7 +34,7 @@ Hooks:
 
 In manage hook execution order:
 Add Order attribute to hook. SpecFlow will execute method with lowest Order value FIRST! Default Order value is 1000.
-Example:
+In this example BeforeScenario3() will be executed first:
 
 [BeforeScenario(Order = 300)]
 public void BeforeScenario1(){...}
@@ -44,3 +44,22 @@ public void BeforeScenario2(){...}
 
 [BeforeScenario(Order = 100)]
 public void BeforeScenario3(){...}
+
+
+Background and BeforeScenario do the same but if both are used, BeforeScenario will be executed first followed by Background!
+Gide when to use Background and when BeforeScenario
+Background:  
+Common “setup” code
+Relevant to business
+Not purely automation
+
+[BeforeScenario]
+Scenario Backgrounds and [BeforeScenario]
+Common “setup” code
+Not business relevant
+Automation/technical
+
+Ordering
+[BeforeScenario]
+Then
+Background
