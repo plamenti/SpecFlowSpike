@@ -80,6 +80,7 @@
     <Compile Include="AwaitingReviewSteps.cs" />
     <Compile Include="CommonPlayerCharacterSteps.cs" />
     <Compile Include="CustomConversions.cs" />
+    <Compile Include="Hooks.cs" />
     <Compile Include="InGameChat.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
