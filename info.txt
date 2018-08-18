@@ -18,3 +18,15 @@ In case of multiple matches:
 
 Matches regular step definition and scoped step definition - Scoped definition will be used
 Matches more than one scoped step definition - Most restrictive step will be used
+
+Hooks:
+[BeforeTestRun]
+	[BeforeFeature]
+		[BeforeScenario] or [Before] 
+			[BeforeScenarioBlock]
+				[BeforeStep]
+				[AfterStep]
+			[AfterScenarioBlock]
+		[AfterScenario] or [After]
+	[AfterFeature]
+[AfterTestRun]
