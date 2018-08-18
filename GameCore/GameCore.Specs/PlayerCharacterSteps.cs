@@ -29,13 +29,13 @@ namespace GameCore.Specs
         [When(@"I take 40 damage")]
         public void WhenITakeDamage()
         {
-            ScenarioContext.Current.Pending();
+            player.Hit(40);
         }
 
         [Then(@"My health should now be 60")]
         public void ThenMyHealthShouldNowBe60()
         {
-            ScenarioContext.Current.Pending();
+            Assert.Equal(60, player.Health);
         }
 
     }
