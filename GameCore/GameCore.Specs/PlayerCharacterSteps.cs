@@ -41,13 +41,13 @@ namespace GameCore.Specs
         [When(@"I take 100 damage")]
         public void WhenITake100Damage()
         {
-            ScenarioContext.Current.Pending();
+            player.Hit(100);
         }
 
         [Then(@"I should be death")]
         public void ThenIShouldBeDeath()
         {
-            ScenarioContext.Current.Pending();
+            Assert.True(player.IsDead);
         }
 
     }
