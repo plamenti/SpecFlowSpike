@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -99,6 +100,17 @@ namespace GameCore.Specs
             Assert.Equal(expectedTotalMagicalPower, player.MagicPower);
         }
 
+        [Given(@"I last slept (.* days ago)")]
+        public void GivenILastSleptDaysAgo(DateTime lastSlept)
+        {
+            player.LastSleepTime = lastSlept;
+        }
+
+        [When(@"I read a restore health scroll")]
+        public void WhenIReadARestoreHealthScroll()
+        {
+            player.ReadHealthScroll();
+        }
 
     }
 }
