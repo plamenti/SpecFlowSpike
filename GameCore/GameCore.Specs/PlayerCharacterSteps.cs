@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using Xunit;
@@ -73,19 +74,23 @@ namespace GameCore.Specs
         public void GivenIHaveTheFollowingMagicalItems(Table table)
         {
             // Weakly type example
-            foreach (var row in table.Rows)
-            {
-                var name = row["item"];
-                var value = row["value"];
-                var power = row["power"];
+            //foreach (var row in table.Rows)
+            //{
+            //    var name = row["item"];
+            //    var value = row["value"];
+            //    var power = row["power"];
 
-                player.MagicalItems.Add(new MagicalItem
-                {
-                    Name = name,
-                    Value = int.Parse(value),
-                    Power = int.Parse(power)
-                });
-            }
+            //    player.MagicalItems.Add(new MagicalItem
+            //    {
+            //        Name = name,
+            //        Value = int.Parse(value),
+            //        Power = int.Parse(power)
+            //    });
+            //}
+
+            // Strongly type example
+            IEnumerable<MagicalItem> items = table.CreateSet<MagicalItem>();
+            player.MagicalItems.AddRange(items);
         }
 
         [Then(@"My total magical power should be (.*)")]
