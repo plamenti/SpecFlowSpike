@@ -113,15 +113,15 @@ namespace GameCore.Specs
         }
 
         [Given(@"I have the following weapons")]
-        public void GivenIHaveTheFollowingWeapons(Table table)
+        public void GivenIHaveTheFollowingWeapons(IEnumerable<Weapon> weapons)
         {
-            ScenarioContext.Current.Pending();
+            player.Weapons.AddRange(weapons);
         }
 
         [Then(@"My weapons should be worth (.*)")]
-        public void ThenMyWeaponsShouldBeWorth(int p0)
+        public void ThenMyWeaponsShouldBeWorth(int value)
         {
-            ScenarioContext.Current.Pending();
+            Assert.Equal(value, player.WeaponsValue);
         }
 
 
