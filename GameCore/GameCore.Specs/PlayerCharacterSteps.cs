@@ -127,19 +127,25 @@ namespace GameCore.Specs
         [Given(@"I have an Amulet with a power of (.*)")]
         public void GivenIHaveAnAmuletWithAPowerOf(int p0)
         {
-            ScenarioContext.Current.Pending();
+            // TODO: add amulet to player's magical items
+
+            // TODO: store the starting power so it can be retrieved in Then step
         }
 
         [When(@"I use a magical amulet")]
         public void WhenIUseAMagicalAmulet()
         {
-            ScenarioContext.Current.Pending();
+            // TODO: PLAYER CHARACTER INSTANCE.UseMagicalItem("Amulet);
         }
 
         [Then(@"Amulet power should not be reduced")]
         public void ThenAmuletPowerShouldNotBeReduced()
         {
-            ScenarioContext.Current.Pending();
+            int expectedPower;
+            // TODO: get starting magical power from When step
+
+
+            // TODO: Assert.Equal(expectedPower, ACTUAL POWER);
         }
 
     }
