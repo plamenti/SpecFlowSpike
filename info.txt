@@ -1,0 +1,6 @@
+To run the tests from the console:
+Open a command prompt or PowerShell command window. In the window, navigate to the root folder of your solution (where .sln file is).
+To run the console runner, use a command like: 
+packages\xunit.runner.console.2.4.0\tools\net46\xunit.console GameCore.Specs\bin\Debug\GameCore.Specs.dll
+
+The console runner has several command line options, which include options for parallelization, test filtering, and result reporting. To learn more about the console runner options, run the console runner with no command line options.
