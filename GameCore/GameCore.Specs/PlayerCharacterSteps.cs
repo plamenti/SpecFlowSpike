@@ -72,13 +72,26 @@ namespace GameCore.Specs
         [Given(@"I have the following magical items")]
         public void GivenIHaveTheFollowingMagicalItems(Table table)
         {
-            ScenarioContext.Current.Pending();
+            // Weakly type example
+            foreach (var row in table.Rows)
+            {
+                var name = row["item"];
+                var value = row["value"];
+                var power = row["power"];
+
+                player.MagicalItems.Add(new MagicalItem
+                {
+                    Name = name,
+                    Value = int.Parse(value),
+                    Power = int.Parse(power)
+                });
+            }
         }
 
         [Then(@"My total magical power should be (.*)")]
         public void ThenMyTotalMagicalPowerShouldBe(int expectedTotalMagicalPower)
         {
-            ScenarioContext.Current.Pending();
+            Assert.Equal(expectedTotalMagicalPower, player.MagicPower);
         }
 
 
