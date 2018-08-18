@@ -12,14 +12,14 @@ namespace GameCore.Specs
             ScenarioContext.Current.Pending();
         }
         
-        [When(@"I take (.*) damage")]
-        public void WhenITakeDamage(int p0)
+        [When(@"I take 0 damage")]
+        public void WhenITake0Damage()
         {
             ScenarioContext.Current.Pending();
         }
         
-        [Then(@"My health should now be (.*)")]
-        public void ThenMyHealthShouldNowBe(int p0)
+        [Then(@"My health should now be 100")]
+        public void ThenMyHealthShouldNowBe()
         {
             ScenarioContext.Current.Pending();
         }
