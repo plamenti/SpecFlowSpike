@@ -10,42 +10,41 @@ namespace GameCore.Specs
     [Binding]
     public class PlayerCharacterSteps
     {
-        private PlayerCharacter player;
+        private readonly PlayerCharacterStepsContext context;
 
-        [Given(@"I am a new player")]
-        public void GivenIAmANewPlayer()
+        public PlayerCharacterSteps(PlayerCharacterStepsContext context)
         {
-            player = new PlayerCharacter();
+            this.context = context;
         }
 
         [When(@"I take (.*) damage")]
         public void WhenITakeDamage(int damage)
         {
-            player.Hit(damage);
+            context.Player.Hit(damage);
         }
 
         [Then(@"My health should now be (.*)")]
         public void ThenMyHealthShouldNowBe(int expectedHealth)
         {
-            Assert.Equal(expectedHealth, player.Health);
+            Assert.Equal(expectedHealth, context.Player.Health);
         }
 
         [Then(@"I should be death")]
         public void ThenIShouldBeDeath()
         {
-            Assert.True(player.IsDead);
+            Assert.True(context.Player.IsDead);
         }
 
         [Given(@"I have a damage resistance of (.*)")]
         public void GivenIHaveADamageResistanceOf(int damageResistance)
         {
-            player.DamageResistance = damageResistance;
+            context.Player.DamageResistance = damageResistance;
         }
 
         [Given(@"I am an Elf")]
         public void GivenIAmAnElf()
         {
-            player.Race = "Elf";
+            context.Player.Race = "Elf";
         }
 
         [Given(@"I have the following attributes")]
@@ -55,20 +54,20 @@ namespace GameCore.Specs
             //string resistance = table.Rows.First(row => row["attribute"] == "Resistance")["value"];
             PlayerAttributes attributes = table.CreateInstance<PlayerAttributes>();
 
-            player.Race = attributes.Race;
-            player.DamageResistance = attributes.Resistance;
+            context.Player.Race = attributes.Race;
+            context.Player.DamageResistance = attributes.Resistance;
         }
 
         [Given(@"My character class is set to (.*)")]
         public void GivenMyCharacterClassIsSetToHealer(CharacterClass characterClass)
         {
-            player.CharacterClass = characterClass;
+            context.Player.CharacterClass = characterClass;
         }
 
         [When(@"Cast a healing spell")]
         public void WhenCastAHealingSpell()
         {
-            player.CastHealingSpell();
+            context.Player.CastHealingSpell();
         }
 
         [Given(@"I have the following magical items")]
@@ -91,37 +90,37 @@ namespace GameCore.Specs
 
             // Strongly type example
             IEnumerable<MagicalItem> items = table.CreateSet<MagicalItem>();
-            player.MagicalItems.AddRange(items);
+            context.Player.MagicalItems.AddRange(items);
         }
 
         [Then(@"My total magical power should be (.*)")]
         public void ThenMyTotalMagicalPowerShouldBe(int expectedTotalMagicalPower)
         {
-            Assert.Equal(expectedTotalMagicalPower, player.MagicPower);
+            Assert.Equal(expectedTotalMagicalPower, context.Player.MagicPower);
         }
 
         [Given(@"I last slept (.* days ago)")]
         public void GivenILastSleptDaysAgo(DateTime lastSlept)
         {
-            player.LastSleepTime = lastSlept;
+            context.Player.LastSleepTime = lastSlept;
         }
 
         [When(@"I read a restore health scroll")]
         public void WhenIReadARestoreHealthScroll()
         {
-            player.ReadHealthScroll();
+            context.Player.ReadHealthScroll();
         }
 
         [Given(@"I have the following weapons")]
         public void GivenIHaveTheFollowingWeapons(IEnumerable<Weapon> weapons)
         {
-            player.Weapons.AddRange(weapons);
+            context.Player.Weapons.AddRange(weapons);
         }
 
         [Then(@"My weapons should be worth (.*)")]
         public void ThenMyWeaponsShouldBeWorth(int value)
         {
-            Assert.Equal(value, player.WeaponsValue);
+            Assert.Equal(value, context.Player.WeaponsValue);
         }
 
         [Given(@"I have an Amulet with a power of (.*)")]
