@@ -1,4 +1,5 @@
-﻿Feature: InGameChat
+﻿@awaitingReviewBeforeStartingWork
+Feature: InGameChat
 	In order to increase the sense of game community
 	As a human player
 	I want to be able to chat via text with other human players
