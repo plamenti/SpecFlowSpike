@@ -69,5 +69,18 @@ namespace GameCore.Specs
             player.CastHealingSpell();
         }
 
+        [Given(@"I have the following magical items")]
+        public void GivenIHaveTheFollowingMagicalItems(Table table)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"My total magical power should be (.*)")]
+        public void ThenMyTotalMagicalPowerShouldBe(int expectedTotalMagicalPower)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
     }
 }

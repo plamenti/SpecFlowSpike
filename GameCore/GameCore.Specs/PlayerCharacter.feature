@@ -39,3 +39,11 @@ Scenario: Healers restore all health
 	When I take 40 damage
 	And Cast a healing spell
 	Then My health should now be 100
+
+Scenario: Total magic power
+	Given I have the following magical items
+	| item   | value | power |
+	| Ring   | 200   | 100   |
+	| Amulet | 400   | 200   |
+	| Gloves | 100   | 400   |
+	Then My total magical power should be 700
