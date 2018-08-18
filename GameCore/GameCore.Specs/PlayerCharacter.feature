@@ -12,3 +12,8 @@ Scenario: Starting health is reduced when hit
 	Given I am a new player
 	When  I take 40 damage
 	Then My health should now be 60
+
+Scenario: Taking too much damage should results in player death
+	Given I am a new player
+	When I take 100 damage
+	Then I should be death

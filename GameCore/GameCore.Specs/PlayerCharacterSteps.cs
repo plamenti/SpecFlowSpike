@@ -27,7 +27,7 @@ namespace GameCore.Specs
         }
 
         [When(@"I take 40 damage")]
-        public void WhenITakeDamage()
+        public void WhenITake40Damage()
         {
             player.Hit(40);
         }
@@ -36,6 +36,18 @@ namespace GameCore.Specs
         public void ThenMyHealthShouldNowBe60()
         {
             Assert.Equal(60, player.Health);
+        }
+
+        [When(@"I take 100 damage")]
+        public void WhenITake100Damage()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"I should be death")]
+        public void ThenIShouldBeDeath()
+        {
+            ScenarioContext.Current.Pending();
         }
 
     }
