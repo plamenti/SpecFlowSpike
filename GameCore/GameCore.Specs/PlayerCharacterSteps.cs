@@ -123,28 +123,29 @@ namespace GameCore.Specs
             Assert.Equal(value, context.Player.WeaponsValue);
         }
 
-        [Given(@"I have an Amulet with a power of (.*)")]
-        public void GivenIHaveAnAmuletWithAPowerOf(int p0)
+        [Given(@"I have an (.*) with a power of (.*)")]
+        public void GivenIHaveAnAmuletWithAPowerOf(string name, int power)
         {
-            // TODO: add amulet to player's magical items
+            // add amulet to player's magical items
+            context.Player.MagicalItems.Add(new MagicalItem { Name = name, Power = power });
 
-            // TODO: store the starting power so it can be retrieved in Then step
+            // store the starting power so it can be retrieved in Then step
+            context.StartingMagicalPower = power;
         }
 
-        [When(@"I use a magical amulet")]
-        public void WhenIUseAMagicalAmulet()
+        [When(@"I use a magical (.*)")]
+        public void WhenIUseAMagicalAmulet(string name)
         {
-            // TODO: PLAYER CHARACTER INSTANCE.UseMagicalItem("Amulet);
+            context.Player.UseMagicalItem(name);
         }
 
         [Then(@"Amulet power should not be reduced")]
         public void ThenAmuletPowerShouldNotBeReduced()
         {
-            int expectedPower;
-            // TODO: get starting magical power from When step
+            // get starting magical power from When step
+            int expectedPower = context.StartingMagicalPower;
 
-
-            // TODO: Assert.Equal(expectedPower, ACTUAL POWER);
+            Assert.Equal(expectedPower, context.Player.MagicalItems.First(x => x.Name == "Amulet").Power);
         }
 
     }

@@ -65,5 +65,5 @@ Scenario: Weapons are worth money
 Scenario: Elf race characters don't lose magical item power
 	Given I am an Elf
 	And I have an Amulet with a power of 200
-	When I use a magical amulet
+	When I use a magical Amulet
 	Then Amulet power should not be reduced
