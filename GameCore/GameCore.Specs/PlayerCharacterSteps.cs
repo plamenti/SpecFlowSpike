@@ -1,4 +1,5 @@
-﻿using TechTalk.SpecFlow;
+﻿using System.Linq;
+using TechTalk.SpecFlow;
 using Xunit;
 
 namespace GameCore.Specs
@@ -44,6 +45,15 @@ namespace GameCore.Specs
             player.Race = "Elf";
         }
 
+        [Given(@"I have the following attributes")]
+        public void GivenIHaveTheFollowingAttributes(Table table)
+        {
+            string race = table.Rows.First(row => row["attribute"] == "Race")["value"];
+            string resistance = table.Rows.First(row => row["attribute"] == "Resistance")["value"];
+
+            player.Race = race;
+            player.DamageResistance = int.Parse(resistance);
+        }
 
     }
 }
