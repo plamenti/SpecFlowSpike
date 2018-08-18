@@ -42,7 +42,7 @@ Scenario: Healers restore all health
 
 Scenario: Total magic power
 	Given I have the following magical items
-	| item   | value | power |
+	| name   | value | power |
 	| Ring   | 200   | 100   |
 	| Amulet | 400   | 200   |
 	| Gloves | 100   | 400   |
