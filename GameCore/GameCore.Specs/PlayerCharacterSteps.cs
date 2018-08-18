@@ -112,5 +112,18 @@ namespace GameCore.Specs
             player.ReadHealthScroll();
         }
 
+        [Given(@"I have the following weapons")]
+        public void GivenIHaveTheFollowingWeapons(Table table)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"My weapons should be worth (.*)")]
+        public void ThenMyWeaponsShouldBeWorth(int p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
     }
 }
