@@ -23,6 +23,13 @@ namespace GameCore.Specs
             context.Player.Hit(damage);
         }
 
+        [When(@"I take (.*) damage")]
+        [Scope(Tag = "elf")]
+        public void WhenITakeDamageAsAnElf(int damage)
+        {
+            context.Player.Hit(damage);
+        }
+
         [Then(@"My health should now be (.*)")]
         public void ThenMyHealthShouldNowBe(int expectedHealth)
         {

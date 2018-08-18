@@ -65,7 +65,7 @@ Scenario: Weapons are worth money
 	Then My weapons should be worth 100
 
 @elf
-@ignore
+#@ignore
 Scenario: Elf race characters don't lose magical item power
 	Given I am an Elf
 	And I have an Amulet with a power of 200
