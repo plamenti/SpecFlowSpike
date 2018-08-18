@@ -18,7 +18,7 @@ namespace GameCore
             }
         }
 
-        public List<MagicalItem> MagicalItems { get; set; }
+        public List<MagicalItem> MagicalItems { get; set; } = new List<MagicalItem>();
         public List<Weapon> Weapons { get; set; } = new List<Weapon>();
         public CharacterClass CharacterClass { get; set; }
         public DateTime LastSleepTime { get; set; }
